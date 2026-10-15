@@ -1,0 +1,302 @@
+/* Campaign identity layer for the Observatório acervo. Loaded after style.css,
+   theme-cidada.css and layout-fixes.css, so it wins the cascade. Palette, type,
+   sheared brand boxes and flag details come from the Lula 2026 campaign guide,
+   shared with the Vamo Virar app so the two read as one project. */
+
+:root{
+  color-scheme:light;
+  /* campaign palette */
+  --red:#FD0000; --red-dark:#A20301; --yellow:#FFD400; --yellow-d:#C9A600;
+  --greenc:#00B923; --green-dk:#006820; --bluec:#0034D2; --blue-dk:#001F7D;
+  --purplec:#7a2bd6; --inkc:#141414; --creamc:#F6EFE7; --shear:-11.3deg;
+  --cond:"Barlow Condensed","Arial Narrow",Impact,sans-serif;
+  --disp:"Archivo","Arial Black",sans-serif;
+  /* remap the site's existing tokens onto the campaign palette */
+  --bg:#F6EFE7; --panel:#ffffff; --line:#E6D7DA; --muted:#5a5560; --text:#141414;
+  --mint:#006820; --blue:#0034D2; --amber:#B07A00; --pink:#7a2bd6;
+  --accent:#0034D2; --green:#00B923; --orange:#C2410C;
+  --font:"Montserrat",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+body{background:var(--bg);color:var(--text);font-family:var(--font)}
+
+/* --- flag rule + countdown strip (added in template) --- */
+.vv-rule{display:flex;height:6px;width:100%}
+.vv-rule i{flex:1}.vv-rule .g{background:var(--greenc)}.vv-rule .y{background:var(--yellow)}.vv-rule .b{background:var(--bluec)}
+.vv-strip{background:var(--inkc);color:#fff;display:flex;align-items:center;gap:16px;padding:9px 25px;font-family:var(--disp);font-weight:800;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;flex-wrap:wrap}
+.vv-strip b{color:var(--yellow)}
+.vv-strip .flag{display:inline-flex;height:7px;width:40px}.vv-strip .flag i{flex:1}
+.vv-strip .flag .g{background:var(--greenc)}.vv-strip .flag .y{background:var(--yellow)}.vv-strip .flag .b{background:var(--bluec)}
+.vv-strip .spacer{margin-left:auto}
+
+/* --- sidebar: brand becomes a sheared red cube --- */
+.sidebar{background:#fff;border-right:1px solid var(--line)}
+.brand{flex-direction:column;align-items:flex-start;gap:0;transform:skewY(var(--shear));margin-bottom:10px}
+.brand>span:last-child{background:var(--red);color:#fff;font-family:var(--disp)!important;font-weight:900;font-size:19px;line-height:.98;letter-spacing:-.02em;padding:9px 13px 12px;box-shadow:5px 6px 0 var(--red-dark);text-transform:uppercase;position:relative}
+.brand .brand-icon{position:absolute;top:8px;right:11px;left:auto;width:auto;color:#fff;font-size:12px;z-index:2}
+.brand small{color:#ffd9d9;letter-spacing:.14em;margin-top:5px;font-weight:600}
+.nav-label{color:var(--muted);font-family:var(--disp);font-weight:800}
+.nav{color:var(--inkc);border-radius:8px;font-family:var(--font);font-weight:600}
+.nav:hover{background:var(--creamc)}
+.nav.active{background:var(--red);color:#fff}
+.nav.active span{color:#fff}
+.sidebar-note h3{font-family:var(--cond)!important;font-weight:800;text-transform:uppercase;color:var(--red)}
+.mini-line{background:var(--yellow)}
+.edition{color:var(--muted)}.edition strong{color:var(--inkc)}
+
+/* --- topbar --- */
+.workspace{background:var(--bg)}
+.topbar{background:#fff;border-bottom:1px solid var(--line);color:var(--muted)}
+.topbar b{color:var(--red)}
+.divider{color:var(--line)}
+
+/* --- headings --- */
+.eyebrow,.overline{font-family:var(--disp);font-weight:800;letter-spacing:.17em;color:var(--red)}
+.heading h1{font-family:var(--cond)!important;font-weight:900;text-transform:uppercase;font-size:clamp(38px,5vw,64px);line-height:.9;letter-spacing:-.01em;color:var(--inkc)}
+.heading h1 span{color:var(--red)}
+.heading p{color:#3a3a3a;font-size:15px}
+.edition-badge{font-family:var(--disp);font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.panel-heading h2,.results-title h2,.library-heading h2{font-family:var(--cond)!important;font-weight:900;text-transform:uppercase;letter-spacing:-.005em;color:var(--inkc)}
+
+/* --- notice + editorial banner --- */
+.notice{background:#fff;border:1px solid var(--line);border-left:5px solid var(--yellow-d);color:#333}
+.notice span{background:var(--yellow);color:var(--inkc)}
+.editorial-banner{background:var(--inkc);color:#fff;border:0}
+.editorial-banner h2{font-family:var(--cond)!important;font-weight:900;text-transform:uppercase;color:#fff}
+.editorial-banner .overline{color:var(--yellow)}
+.editorial-banner p{color:#d6d6de}
+
+/* --- metrics --- */
+.metrics{background:#fff;border:1px solid var(--line);border-radius:12px}
+.metrics>div{border-color:var(--line)!important}
+.metrics strong{font-family:var(--disp)!important;color:var(--red);letter-spacing:-.02em}
+.metrics span{font-family:var(--disp);font-weight:800;letter-spacing:.09em;color:var(--muted);text-transform:uppercase}
+.metric-accent{background:var(--inkc)}
+.metric-accent strong{color:var(--yellow)}
+.metric-accent span,.metric-accent small{color:#cfcfd6}
+
+/* --- filters --- */
+.search,.select-label select,.doc-search input,#document-query{background:#fff;border:2px solid var(--line);border-radius:12px}
+.search:focus-within{border-color:var(--bluec)}
+.clear,.source-btn{background:var(--bluec);color:#fff;border-radius:10px;font-weight:700;border:0;box-shadow:0 4px 0 var(--blue-dk)}
+.clear:active,.source-btn:active{transform:translateY(4px);box-shadow:0 0 0 var(--blue-dk)}
+.text-button{color:var(--bluec);font-weight:700}
+.filter-chip{background:var(--inkc);color:#fff;border-radius:999px}
+.filter-chip:hover{background:var(--red)}
+
+/* --- panels + charts --- */
+.panel{background:#fff;border:1px solid var(--line);border-radius:16px}
+.chart-hint,.chart-foot{color:var(--muted)}
+.bar-track{background:var(--creamc)}
+.bar-fill{border-radius:999px}
+.bar-number{font-family:var(--disp)!important;font-weight:800;color:var(--inkc)}
+.bar-name{color:var(--text)}
+.bar-row[aria-pressed="true"]{background:var(--creamc)}
+.status-row[aria-pressed="true"]{background:var(--creamc)}
+.status-row b{font-family:var(--disp)!important}
+.year b{font-family:var(--disp)!important;color:var(--inkc)}
+.year[aria-pressed="true"]{background:var(--creamc)}
+
+/* --- case cards --- */
+.cards{gap:16px}
+.case-card{background:#fff;border:1px solid var(--line);border-left:6px solid var(--case-color,var(--red));border-radius:14px}
+.case-card h3{font-family:var(--cond)!important;font-weight:800;text-transform:uppercase;letter-spacing:-.005em;color:var(--inkc)}
+.card-top{font-family:var(--disp);font-weight:800;letter-spacing:.08em;color:var(--muted)}
+.case-card .summary{color:#444}
+.case-card .people{color:var(--muted);font-weight:600}
+.case-card .record-date{color:var(--muted)}
+.badge{background:var(--creamc);color:var(--inkc);border-radius:999px;font-weight:700}
+.card-open{background:var(--bluec);color:#fff;border-radius:9px;font-weight:700;box-shadow:0 4px 0 var(--blue-dk);border:0;padding:11px 20px}
+.card-open:active{transform:translateY(4px);box-shadow:0 0 0 var(--blue-dk)}
+.record-link{color:var(--bluec);font-weight:700}
+.case-card blockquote,.speech-date,.paraphrase{color:#333}
+
+/* --- featured dossiers --- */
+.featured-card{background:var(--inkc);color:#fff;border-radius:14px}
+.featured-card .overline{color:var(--yellow)}
+.featured-card h3{font-family:var(--cond)!important;font-weight:800;text-transform:uppercase;color:#fff}
+.featured-card p{color:#cfcfd6}
+.featured-card strong{color:var(--yellow)}
+
+/* --- allies + documents --- */
+.ally-profile{background:#fff;border:1px solid var(--line);border-radius:14px}
+.ally-content h3{font-family:var(--cond)!important;font-weight:800;text-transform:uppercase}
+.document-card{background:#fff;border:1px solid var(--line);border-top:6px solid var(--bluec);border-radius:14px}
+.document-card h3,.doc-limit strong{font-family:var(--cond)!important;font-weight:800;text-transform:uppercase}
+.doc-types button[aria-pressed="true"]{background:var(--inkc);color:#fff;border-color:var(--inkc)}
+.reading-guide a b{color:var(--bluec)}
+.hash{background:var(--creamc)}
+
+/* --- dialog --- */
+#detail{background:#fff;color:var(--inkc);border-radius:18px}
+.dialog-top{background:var(--inkc)}
+.dialog-top .overline{color:var(--yellow)}
+#dialog-body h2{font-family:var(--cond)!important;font-weight:900;text-transform:uppercase;color:var(--inkc)}
+#dialog-body h3{font-family:var(--cond)!important;font-weight:800;text-transform:uppercase;color:var(--red)}
+#dialog-body a{color:var(--bluec)}
+.critical-analysis{background:var(--creamc);border-left:5px solid var(--purplec)}
+.critical-analysis .overline{color:var(--purplec)}
+.case-timeline li::before,.case-timeline li strong::before{background:var(--red)}
+.permanent-link a{background:var(--creamc);color:var(--inkc);font-weight:700}
+
+/* --- footer + family lockup --- */
+.workspace footer{background:var(--inkc)!important;color:#fff;border-top:0;width:100vw;margin-left:calc(50% - 50vw);padding:40px 44px;box-sizing:border-box}
+.footer-brand{font-family:var(--disp);font-weight:900;color:#fff}
+
+/* --- dossier / record pages (pages.py) --- */
+.dossier-page{background:var(--bg);color:var(--text)}
+.dossier-header{background:#fff;border-bottom:1px solid var(--line)}
+.dossier-brand{font-family:var(--disp)!important;font-weight:900;color:var(--red)}
+.dossier-eyebrow,.section-number{font-family:var(--disp)!important;color:var(--red)}
+.dossier-main h1,.dossier-page h2{font-family:var(--cond)!important;font-weight:900;text-transform:uppercase;color:var(--inkc)}
+.evidence-card,.amount-card{background:#fff;border:1px solid var(--line);border-radius:12px}
+.dossier-timeline li::before{background:var(--red)}
+.dossier-page .badge{background:var(--red);color:#fff}
+
+/* --- accessibility: keep a visible focus ring --- */
+:focus-visible{outline:3px solid var(--purplec);outline-offset:2px}
+
+/* ===================================================================
+   STRUCTURE: top navigation (replaces the fixed sidebar) + stat cubes.
+   Loaded after the first campaign block, so these win. =============== */
+
+/* countdown strip spans the full width at the very top */
+.vv-strip{width:100%}
+
+/* the sidebar becomes a horizontal top bar */
+.sidebar{display:flex;position:static;inset:auto;width:auto;height:auto;flex-direction:row;align-items:center;gap:20px;padding:12px 40px;border-right:0;border-bottom:1px solid var(--line);background:#fff;flex-wrap:wrap}
+.workspace{margin-left:0!important}
+.nav-label,.sidebar-note,.edition,.topbar{display:none!important}
+
+/* brand cube */
+.brand{flex-direction:column;align-items:flex-start;gap:0;margin:0 8px 0 0;transform:skewY(var(--shear))}
+.brand>span:last-child{background:var(--red);color:#fff;font-family:var(--disp)!important;font-weight:900;font-size:20px;line-height:1;letter-spacing:-.01em;padding:10px 15px 12px;box-shadow:5px 6px 0 var(--red-dark);text-transform:uppercase;position:relative;display:block}
+.brand .brand-icon{position:absolute;top:7px;right:10px;left:auto;width:auto;font-size:12px;color:#fff;z-index:2}
+.brand small{display:block;color:#ffd9d9;font-family:var(--font)!important;font-weight:600;font-size:9px;letter-spacing:.14em;margin-top:5px}
+
+/* horizontal nav */
+.sidebar nav{display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;gap:2px;margin:0;width:auto}
+.sidebar .nav{text-decoration:none;width:auto;white-space:nowrap;margin:0;padding:8px 11px;font-size:14.5px;font-weight:600;border-radius:6px;background:none;color:var(--inkc);border:0;border-bottom:3px solid transparent}
+.sidebar .nav span{display:none}
+.sidebar .nav:hover{background:var(--creamc)}
+.sidebar .nav.active{background:none;color:var(--red);border-bottom-color:var(--red)}
+
+/* Vamo Virar sibling link, pushed to the right */
+
+/* hero headline highlight ("aberta." in red, on its own line) */
+.heading h1 .hl{color:var(--red);display:block}
+.heading{align-items:flex-start}
+
+/* metrics become sheared stat cubes */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;background:none!important;border:0!important;border-radius:0;margin:48px 0 54px;overflow:visible}
+.metrics>div{min-width:0;position:relative;transform:skewY(var(--shear));padding:18px 24px;margin-left:7px;color:#fff;border:0!important;background:none;border-radius:0;display:flex;flex-direction:column;justify-content:center;min-height:112px}
+.metrics>div::before{content:"";position:absolute;inset:6px -6px -6px 6px;z-index:0}
+.metrics>div>*{position:relative;z-index:1;display:block;transform:skewY(calc(-1 * var(--shear)))}
+.metrics>div:nth-child(1){background:var(--red)}.metrics>div:nth-child(1)::before{background:var(--red-dark)}
+.metrics>div:nth-child(2){background:var(--bluec)}.metrics>div:nth-child(2)::before{background:var(--blue-dk)}
+.metrics>div:nth-child(3){background:var(--greenc)}.metrics>div:nth-child(3)::before{background:var(--green-dk)}
+.metrics>div:nth-child(3),.metrics>div:nth-child(3) *{color:var(--inkc)}
+.metrics>div:nth-child(4){background:var(--inkc)}.metrics>div:nth-child(4)::before{background:#000}
+.metrics strong{font-family:var(--disp)!important;font-size:54px;line-height:1;letter-spacing:-.02em;color:inherit;margin:0}
+.metrics span{font-family:var(--disp)!important;font-weight:800;font-size:13px;letter-spacing:.07em;text-transform:uppercase;margin-top:8px;color:inherit}
+.metrics small{font-size:11px;opacity:.92;margin-top:2px;color:inherit;font-family:var(--font)}
+
+/* responsive: nav wraps, cubes stack 2x2 */
+@media(max-width:820px){
+  .sidebar{flex-wrap:wrap;padding:10px 20px}
+  .metrics{grid-template-columns:1fr 1fr}
+}
+/* fourth cube (black): white number, like the mockup */
+.metrics>div:nth-child(4) strong{color:#fff}
+.metrics>div:nth-child(4) span,.metrics>div:nth-child(4) small{color:#e6e6ec}
+
+/* ===================================================================
+   PASS 2 — closing the gaps against the mockup. ==================== */
+
+/* hero eyebrow becomes a sheared red ribbon */
+.heading .eyebrow{display:inline-block;background:var(--red);color:#fff;font-family:var(--disp)!important;font-weight:800;font-size:13px;letter-spacing:.14em;padding:7px 15px;margin-bottom:22px;transform:skewY(var(--shear));box-shadow:4px 5px 0 var(--red-dark)}
+
+/* edition badge: three lines like the mockup */
+.edition-badge strong{display:block;font-family:var(--disp)!important;font-weight:900;font-size:19px;color:var(--inkc);margin:2px 0}
+
+/* brand lockup: OBSERVA/TÓRIO cube + ACERVO tag + flag */
+.brand{text-decoration:none;display:inline-flex!important;flex-direction:row!important;align-items:flex-end;gap:7px;transform:skewY(var(--shear));margin:0 10px 0 0}
+.brand>span:last-child{background:none!important;box-shadow:none!important;padding:0!important;color:inherit!important}
+.brand .brand-cube{position:relative;background:var(--red);color:#fff;font-family:var(--disp)!important;font-weight:900;font-size:19px;line-height:.9;letter-spacing:-.01em;text-transform:uppercase;padding:9px 14px 11px;box-shadow:5px 6px 0 var(--red-dark)}
+.brand .brand-cube .brand-icon{position:absolute!important;top:5px!important;right:8px!important;left:auto!important;width:auto!important;font-size:11px;color:#fff}
+.brand .brand-tags{display:flex;flex-direction:column;gap:3px;margin-bottom:4px}
+.brand .brand-tag-acervo{background:var(--bluec);color:#fff;font-family:var(--disp)!important;font-weight:800;font-size:10px;letter-spacing:.1em;padding:3px 9px;box-shadow:2px 3px 0 var(--blue-dk);text-align:center}
+.brand .brand-tag-flag{display:flex;height:11px;width:100%}
+.brand .brand-tag-flag i{flex:1}.brand .brand-tag-flag .g{background:var(--greenc)}.brand .brand-tag-flag .y{background:var(--yellow)}.brand .brand-tag-flag .b{background:var(--bluec)}
+
+/* nav fits on one row */
+.sidebar .nav{padding:8px 9px;font-size:14px}
+
+/* "Limpar filtros" is a plain bold text link, not a button */
+.filters .clear{background:none!important;color:var(--inkc)!important;box-shadow:none!important;border:0!important;font-family:var(--disp)!important;font-weight:800;text-transform:uppercase;letter-spacing:.03em;font-size:14px;padding:0 6px!important;min-height:auto}
+.filters .clear:hover{color:var(--red)!important}
+.filters .clear:active{transform:none!important}
+
+/* balanced filter row: search wide, two equal selects, link at the end */
+.filters{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.filters .search{flex:1 1 320px}
+.filters .select-label{flex:0 1 210px;margin:0}
+.filters .select-label select{width:100%}
+
+/* the visitor-counter + layout-fixes stylesheets position .sidebar as the old
+   fixed left column; the sidebar is now a horizontal top bar, so cancel the
+   forced full-height that was leaving a big blank block under the counter. */
+body .site-counter~.sidebar{position:static!important;top:auto!important;height:auto!important;overflow:visible!important}
+
+/* dossier / record pages: lift the leftover dark-theme panels to the light campaign look */
+.dossier-lead{color:#333!important}
+.dossier-page .people,.dossier-main .people,.dossier-status,.process-number{color:#5a5560!important}
+.dossier-status .badge,.dossier-page .badge{background:var(--red)!important;color:#fff!important;border:0!important}
+.dossier-nav{background:#fff!important;backdrop-filter:none!important;border-bottom:1px solid var(--line)!important}
+.dossier-nav a{border:1px solid var(--line)!important;color:var(--inkc)!important;font-weight:600}
+.dossier-nav a:hover{background:var(--red)!important;color:#fff!important;border-color:var(--red)!important}
+.review-note{background:#fff!important;color:#444!important;border:1px solid var(--line)!important;border-left:5px solid var(--yellow-d)!important;border-radius:0 12px 12px 0}
+.evidence-card,.amount-card{background:#fff!important;border:1px solid var(--line)!important}
+
+/* featured dossier cards sit on ink; keep their body text readable */
+body .featured-card p{color:#dcdce2!important}
+html{overflow-x:clip}
+
+/* footer links readable on the ink band */
+.workspace footer a,.workspace footer .text-button,.workspace footer button{color:var(--yellow)!important}
+
+/* fourth cube number matches the others (style.css shrank it to 26px for the old "Geral" word) */
+.metrics .metric-accent strong{font-size:54px}
+
+/* ===================================================================
+   MOBILE-FIRST: hamburger menu + responsive polish ================= */
+.vv-burger{display:none}
+
+@media(max-width:860px){
+  .sidebar{gap:10px 14px;padding:12px 18px}
+  /* hamburger button (>=44px touch target) */
+  .vv-burger{display:inline-flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;margin-left:auto;width:52px;height:46px;background:var(--red);border:0;border-radius:9px;box-shadow:3px 4px 0 var(--red-dark);cursor:pointer;padding:0}
+  .vv-burger span{display:block;width:24px;height:3px;background:#fff;border-radius:2px}
+  .vv-burger[aria-expanded="true"]{background:var(--red-dark)}
+  /* nav folds away; opens as a full-width red panel, white text on red */
+  .sidebar nav{display:none;order:3;width:100%;flex-direction:column;gap:0;background:var(--red);border-radius:12px;margin-top:2px;padding:6px;box-shadow:0 12px 28px rgba(0,0,0,.2)}
+  .sidebar nav.vv-open{display:flex}
+  .sidebar .nav{color:#fff!important;width:100%;min-height:50px;display:flex;align-items:center;padding:13px 16px;font-size:16px;border-radius:8px;border:0;border-bottom:1px solid rgba(255,255,255,.16);white-space:normal}
+  .sidebar .nav:last-child{border-bottom:0}
+  .sidebar .nav span{display:none}
+  .sidebar .nav:hover,.sidebar .nav:focus-visible{background:rgba(255,255,255,.14);border-bottom-color:transparent}
+  .sidebar .nav.active{color:#fff!important;background:var(--red-dark);border-bottom-color:transparent}
+  /* stack the two-up panels and the hero asides */
+  .charts{grid-template-columns:1fr}
+  .heading{flex-direction:column;align-items:flex-start;gap:10px}
+  .edition-badge{text-align:left}
+}
+@media(max-width:560px){
+  .metrics{grid-template-columns:1fr}
+  .vv-strip{padding:9px 18px;gap:6px 14px}
+}
+
+/* mobile overflow guards: single-column cubes, no horizontal scroll */
+html,body{overflow-x:clip;max-width:100%}
+@media(max-width:560px){
+  body .metrics{grid-template-columns:1fr!important}
+}
